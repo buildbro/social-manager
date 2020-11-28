@@ -8,15 +8,15 @@
        <h1 class="text-center pt-4 pb-4 font-normal" style="font-family: 'Poppins', sans-serif;"> Add Social Account </h1>
        <div class="border-b border-grey-darker mb-10 mx-10"></div>
     <div class="flex mb-10 px-10">
-      <div class="w-1/2 mr-4 bg-grey-darkest rounded-lg flex px-8 py-6" @click="story('Get Focused, Fast')">
+      <div class="w-1/2 mr-4 bg-grey-darkest rounded-lg flex px-8 py-6" >
         <div class="flex-1">
            <div class="text-center">
           <img src="../assets/facebook.png" alt="image" class="rounded-full w-40">
         </div>
           <h1 class="font-normal text-2xl mb-4">Facebook</h1>
-          <p class="text-grey-light text-xs leading-normal">OmniFocus transforms your to-do list. Click to read how.</p>
+          <p class="text-grey-light text-xs leading-normal mb-4">Add your facebook account</p>
            <div class="mb-8 text-right">
-              <button class="bg-white text-blue rounded-full px-3 py-1 text-xs font-bold">
+              <button class="bg-white text-blue rounded-full px-3 py-1 text-xs font-bold" @click="facebook('facebook')">
                 Add Account
               </button>
             </div>
@@ -24,47 +24,38 @@
        
       </div>
 
-      <div class="w-1/2 ml-4 bg-grey-darkest rounded-lg px-8 py-6" @click="story('Apps That Look Great in Dark Mode')">
+      <div class="w-1/2 ml-4 bg-grey-darkest rounded-lg px-8 py-6" >
+      <div class="flex-1">
        <div class="text-center">
           <img src="../assets/twitter.png" alt="image" class="rounded-full w-40">
         </div>
         <h1 class="font-normal text-2xl mb-4" >Twitter</h1>
-        <p class="text-grey-light text-xs leading-normal mb-4">Dark is the new black.</p>
+        <p class="text-grey-light text-xs leading-normal mb-4">Add your twiiter account</p>
       <div class="mb-8 text-right">
-              <button class="bg-white text-blue rounded-full px-3 py-1 text-xs font-bold">
+        <button class="bg-white text-blue rounded-full px-3 py-1 text-xs font-bold" @click="twitter('twitter')">
                 Add Account
-              </button>
-            </div>
+        </button>
+       </div>
+      </div>
       </div>
 
-      <div class="w-1/2 ml-4 bg-grey-darkest rounded-lg px-8 py-6" @click="story('Apps That Look Great in Dark Mode')">
+      <div class="w-1/2 ml-4 bg-grey-darkest rounded-lg px-8 py-6">
+      <div class="flex-1">
        <div class="text-center">
           <img src="../assets/linkedin.png" alt="image" class="rounded-full w-40">
         </div>
         <h1 class="font-normal text-2xl mb-4" >Linkedin</h1>
-        <p class="text-grey-light text-xs leading-normal mb-4">Dark is the new black.</p>
+        <p class="text-grey-light text-xs leading-normal mb-4">Add your linkedin account</p>
         <div class="mb-8 text-right">
-              <button class="bg-white text-blue rounded-full px-3 py-1 text-xs font-bold">
+              <button class="bg-white text-blue rounded-full px-3 py-1 text-xs font-bold"  @click="linkedin('linkedin')">
                 Add Account
               </button>
             </div>
       </div>
+      </div>
     </div>
 
     <div class="border-b border-grey-darker mb-10 mx-10"></div>
-
-
-    <!-- end apps-games-we-love -->
-
-    <!-- <div class="border-b border-grey-darker mb-10 mx-10"></div> -->
-
-
-    <!-- end top-paid -->
-    <!-- <div class="border-b border-grey-darker mb-10 mx-10"></div> -->
-
-    <!-- <div class="text-grey mb-10 px-10">
-      Terms & Conditions
-    </div> -->
 
   </div>
 </template>
@@ -108,18 +99,24 @@ export default {
       // throttle or debounce for better performance (with lodash)
       this.titleBarVisible = window.scrollY > 0 ? true : false
     },
-    story(title) {
+    facebook(title) {
       this.$router.push({
-        name: 'story',
+        name: 'facebook',
         params: { title }
       })
     },
-    product(title) {
+    twitter(title) {
       this.$router.push({
-        name: 'product',
+        name: 'twitter',
         params: { title }
       })
-    }
+    },
+    linkedin(title) {
+      this.$router.push({
+        name: 'linkedin',
+        params: { title }
+      })
+    },
   }
 }
 </script>

@@ -14,14 +14,6 @@ export default new Router({
       component: Home
     },
     {
-      path: '/create',
-      name: 'create',
-      // route level code-splitting
-      // this generates a separate chunk (create.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "create" */ './views/Create.vue')
-    },
-    {
       path: '/Note',
       name: 'Note',
       component: () => import(/* webpackChunkName: "note" */ './views/Note.vue')
@@ -42,26 +34,22 @@ export default new Router({
       component: () => import(/* webpackChunkName: "categories" */ './views/Schedule.vue')
     },
     {
-      path: '/updates',
-      name: 'updates',
-      component: () => import(/* webpackChunkName: "updates" */ './views/Updates.vue')
-    },
-    {
-      path: '/profile',
-      name: 'profile',
-      component: () => import(/* webpackChunkName: "profile" */ './views/Profile.vue')
-    },
-    {
-      path: '/story',
-      name: 'story',
+      path: '/twitter',
+      name: 'twitter',
       props: true,
-      component: () => import(/* webpackChunkName: "story" */ './views/Story.vue')
+      component: () => import(/* webpackChunkName: "story" */ './views/Twitter.vue')
     },
     {
-      path: '/product',
-      name: 'product',
+      path: '/facebook',
+      name: 'facebook',
       props: true,
-      component: () => import(/* webpackChunkName: "product" */ './views/Product.vue')
+      component: () => import(/* webpackChunkName: "product" */ './views/Facebook.vue')
+    },
+    {
+      path: '/linkedin',
+      name: 'linkedin',
+      props: true,
+      component: () => import(/* webpackChunkName: "product" */ './views/Linkedin.vue')
     },
   ]
 })

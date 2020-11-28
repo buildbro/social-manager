@@ -6,6 +6,7 @@ import {
   installVueDevtools
 } from 'vue-cli-plugin-electron-builder/lib'
 const isDevelopment = process.env.NODE_ENV !== 'production'
+// const path = require('path');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -16,7 +17,7 @@ protocol.registerStandardSchemes(['app'], { secure: true })
 function createWindow () {
   // Create the browser window.
   win = new BrowserWindow({ width: 1200, height: 750, titleBarStyle: 'hiddenInset' })
-  // win.setOpacity(0.98)
+  win.setOpacity(0.98)
 
   if (isDevelopment) {
     // Load the url of the dev server if in development mode
@@ -25,7 +26,7 @@ function createWindow () {
   } else {
     createProtocol('app')
     // Load the index.html when not in development
-    win.loadFile('index.html')
+    win.loadURL('app://./index.html')
   }
 
   win.on('closed', () => {
