@@ -1,7 +1,7 @@
 {
   "name": "social-manager",
   "version": "0.1.0",
-  "author":"eche ngbede",
+  "author": "eche ngbede",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "animate.css": "^3.7.0",
+    "facebook-login-vuejs": "^2.1.3",
     "vue": "^2.5.17",
     "vue-flickity": "^1.1.2",
     "vue-router": "^3.0.1",
