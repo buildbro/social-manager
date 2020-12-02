@@ -16,9 +16,12 @@
           <h1 class="font-normal text-2xl mb-4">Facebook</h1>
           <p class="text-grey-light text-xs leading-normal mb-4">Add your facebook account</p>
            <div class="mb-8 text-right">
-              <button class="bg-white text-blue rounded-full px-3 py-1 text-xs font-bold" @click="facebook('facebook')">
+              <!-- <button class="bg-white text-blue rounded-full px-3 py-1 text-xs font-bold" @click="form('form')">
                 Add Account
-              </button>
+              </button> -->
+              <button @click="form('form')" class="bg-white text-blue active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1" type="button" style="transition: all .15s ease" v-on:click="toggleModal()">
+      Add Account
+    </button>
             </div>
         </div>
        
@@ -32,9 +35,9 @@
         <h1 class="font-normal text-2xl mb-4" >Twitter</h1>
         <p class="text-grey-light text-xs leading-normal mb-4">Add your twiiter account</p>
       <div class="mb-8 text-right">
-        <button class="bg-white text-blue rounded-full px-3 py-1 text-xs font-bold" @click="twitter('twitter')">
-                Add Account
-        </button>
+               <button @click="form('form')" class="bg-white text-blue active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1" type="button" style="transition: all .15s ease" v-on:click="toggleModal()">
+      Add Account
+    </button>
        </div>
       </div>
       </div>
@@ -47,9 +50,9 @@
         <h1 class="font-normal text-2xl mb-4" >Linkedin</h1>
         <p class="text-grey-light text-xs leading-normal mb-4">Add your linkedin account</p>
         <div class="mb-8 text-right">
-              <button class="bg-white text-blue rounded-full px-3 py-1 text-xs font-bold"  @click="linkedin('linkedin')">
-                Add Account
-              </button>
+                     <button @click="form('form')" class="bg-white text-blue active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1" type="button" style="transition: all .15s ease" v-on:click="toggleModal()">
+      Add Account
+    </button>
             </div>
       </div>
       </div>
@@ -99,24 +102,24 @@ export default {
       // throttle or debounce for better performance (with lodash)
       this.titleBarVisible = window.scrollY > 0 ? true : false
     },
-    facebook(title) {
+    form(title) {
       this.$router.push({
-        name: 'facebook',
+        name: 'form',
         params: { title }
       })
     },
-    twitter(title) {
-      this.$router.push({
-        name: 'twitter',
-        params: { title }
-      })
-    },
-    linkedin(title) {
-      this.$router.push({
-        name: 'linkedin',
-        params: { title }
-      })
-    },
+    // twitter(title) {
+    //   this.$router.push({
+    //     name: 'twitter',
+    //     params: { title }
+    //   })
+    // },
+    // linkedin(title) {
+    //   this.$router.push({
+    //     name: 'linkedin',
+    //     params: { title }
+    //   })
+    // },
   }
 }
 </script>

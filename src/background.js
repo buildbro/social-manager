@@ -17,7 +17,7 @@ protocol.registerStandardSchemes(['app'], { secure: true })
 function createWindow () {
   // Create the browser window.
   win = new BrowserWindow({ width: 1200, height: 750, titleBarStyle: 'hiddenInset' })
-  win.setOpacity(0.98)
+  // win.setOpacity(0.98)
 
   if (isDevelopment) {
     // Load the url of the dev server if in development mode

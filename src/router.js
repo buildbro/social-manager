@@ -33,23 +33,29 @@ export default new Router({
       name: 'Schedule',
       component: () => import(/* webpackChunkName: "categories" */ './views/Schedule.vue')
     },
+    // {
+    //   path: '/twitter',
+    //   name: 'twitter',
+    //   props: true,
+    //   component: () => import(/* webpackChunkName: "story" */ './views/Twitter.vue')
+    // },
+    // {
+    //   path: '/facebook',
+    //   name: 'facebook',
+    //   props: true,
+    //   component: () => import(/* webpackChunkName: "product" */ './views/Facebook.vue')
+    // },
+    // {
+    //   path: '/linkedin',
+    //   name: 'linkedin',
+    //   props: true,
+    //   component: () => import(/* webpackChunkName: "product" */ './views/Linkedin.vue')
+    // },
     {
-      path: '/twitter',
-      name: 'twitter',
+      path: '/form',
+      name: 'form',
       props: true,
-      component: () => import(/* webpackChunkName: "story" */ './views/Twitter.vue')
-    },
-    {
-      path: '/facebook',
-      name: 'facebook',
-      props: true,
-      component: () => import(/* webpackChunkName: "product" */ './views/Facebook.vue')
-    },
-    {
-      path: '/linkedin',
-      name: 'linkedin',
-      props: true,
-      component: () => import(/* webpackChunkName: "product" */ './views/Linkedin.vue')
+      component: () => import(/* webpackChunkName: "product" */ './views/Form.vue')
     },
   ]
 })
