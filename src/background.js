@@ -16,7 +16,13 @@ let win
 protocol.registerStandardSchemes(['app'], { secure: true })
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({ width: 1200, height: 750, titleBarStyle: 'hiddenInset' })
+  win = new BrowserWindow({ width: 1200, height: 750, titleBarStyle: 'hiddenInset' ,
+    // Add these webPreferences options
+    webPreferences: {
+      nodeIntegration: true,
+      webviewTag: true
+    }
+})
   // win.setOpacity(0.98)
 
   if (isDevelopment) {

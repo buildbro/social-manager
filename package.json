@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "animate.css": "^3.7.0",
+    "nedb": "^1.8.0",
+    "nedb-promises": "^4.1.0",
     "popper.js": "1.15.0",
     "vue": "^2.5.17",
     "vue-flickity": "^1.1.2",
