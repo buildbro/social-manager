@@ -57,5 +57,11 @@ export default new Router({
       props: true,
       component: () => import(/* webpackChunkName: "product" */ './views/Form.vue')
     },
+    {
+      path: '/viewer',
+      name: 'viewer',
+      props: true,
+      component: () => import('./views/Viewer.vue')
+    },
   ]
 })

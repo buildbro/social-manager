@@ -2,7 +2,7 @@
   <div class="bg-black flex-1 ml-56 px-10 text-white pt-10">
     <div class="top-paid text-white px-10">
       <div class="flex justify-between">
-        <h2 class="font-normal mb-8">Accont</h2>
+        <h2 class="font-normal mb-8">Account</h2>
       </div>
            <div class="search-container text-center p-4 relative">
       <input type="text" placeholder="Search" class="bg-grey-darker text-grey-light text-xs w-full p-2 pl-8 border border-grey-dark rounded">
@@ -12,14 +12,27 @@
     </div>
       <div>
         <div class="flex" v-for="user in usersData" :key="user ._id">
+          <div v-if="user.site === 'fb'">
+            <img src="../assets/facebook.png" alt="image" class="rounded-full w-10">
+          </div>
+          <div v-else-if="user.site === 'twitter'">
+            <img src="../assets/twitter.png" alt="image" class="rounded-full w-10">
+          </div>
+          <div v-else-if="user.site === 'lnk'">
+            <img src="../assets/linkedin.png" alt="image" class="rounded-full w-10">
+          </div>
+          <div v-else>
+
+          </div>
           <div class="w-1/2 pr-6" >
-            <div class="flex mb-8" @click="product('Final Cut Pro')">
+            <div class="flex mb-8" @click="openViewer(user.site, user._id)">
               <!-- <div class="ml-3">1</div> -->
               <div class="ml-3 flex flex-1 justify-between border-b border-grey-darker">
                 <div>
-                  <div class="mb-1">{{user.name}} </div>
-                  <div class="text-grey text-xs mb-6">{{user.saved}}</div>
-                </div>    
+                  <div class="mb-1">{{user.saved}} </div>
+                  <div class="text-grey text-xs mb-6">{{user.name}}</div>
+                </div>
+                <button class="text-white" @click="confirmDelete(user._id)">&cross;</button>
               </div>
             </div>
           </div>
@@ -53,5 +66,26 @@ export default {
   //     console.log( this.usersData )
   //   }
   // }
+  methods:  {
+    form(title, url) {
+      this.$router.push({
+        name: 'viewer',
+        params: { title, url }
+      })
+    },
+    openViewer(url, userKey) {
+      this.$router.push({
+        name: 'viewer',
+        params: { userKey, url }
+      });
+    },
+    confirmDelete(id) {
+      let action = confirm('Are you sure you want to remove this account?');
+      if (action == true) {
+        db.users.remove({_id: id});
+        alert('deleted!')
+      }
+    }
+  }
 }
 </script>

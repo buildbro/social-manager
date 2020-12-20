@@ -1,50 +1,42 @@
 <template>
   <!-- <transition name="router-animation" enter-active-class="animated slideInRight faster"> -->
     <div class="bg-black ml-56 flex-1 text-white pt-10 px-10">
-      <!-- <h1 class="mb-12">{{ title }}</h1> -->
-      <button class="text-white bg-blue px-4 py-2 rounded-lg" @click="$router.go(-1)">Back</button>
-              <div v-for="user in usersData" :key="user ._id"
-              >
+      <h1 class="mb-12">Add Account</h1>
+      <button class="text-white bg-blue px-4 py-2 rounded-lg mb-5" @click="$router.go(-1)">Back</button>
+              <!-- <div v-for="user in usersData" :key="user ._id">
 
 
                 <h1> {{user._id}} </h1>
-                <!-- <webview id="user._id" src="https://facebook.com" style="display:inline-flex; width:530px; height:180px"></webview> -->
+                <webview id="user._id" src="https://facebook.com" style="display:inline-flex; width:530px; height:180px"></webview>
 
-              </div>
+              </div> -->
       <section  class="flex flex-wrap">
+          <div v-if="url === 'fb'">
+              <img src="../assets/facebook.png" alt="image" class="rounded-full w-40">
+          </div>
+          <div v-else-if="url === 'twitter'">
+              <img src="../assets/twitter.png" alt="image" class="rounded-full w-40">
+          </div>
+          <div v-else-if="url === 'lnk'">
+              <img src="../assets/linkedin.png" alt="image" class="rounded-full w-40">
+          </div>
+          <div v-else>
+
+          </div>
         <div class="w-1/2 mx-auto">
             <form>
                     <div class="relative w-full mb-3">
-                      <label
-                        class="block uppercase text-gray-700 text-xs font-bold mb-2 pt-2"
-                        for="grid-password"
-                        >Email</label
-                      ><input
-                        type="email"
-                        class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
-                        placeholder="Email"
-                        style="transition: all 0.15s ease 0s;"
-                        v-model="email"
-                      />
+                      <label class="block uppercase text-gray-700 text-xs font-bold mb-2 pt-2" for="grid-password">Email/Username</label>
+                        <input type="email"
+                               class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                               placeholder="Email" style="transition: all 0.15s ease 0s;"
+                        v-model="email"/>
                     </div>
                     <div class="relative w-full mb-3">
                       <label
                         class="block uppercase text-gray-700 text-xs font-bold mb-2"
                         for="grid-password"
-                        >Password</label
-                      ><input
-                        type="password"
-                        class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
-                        placeholder="Password"
-                        style="transition: all 0.15s ease 0s;"
-                        v-model="password"
-                      />
-                    </div>
-                    <div class="relative w-full mb-3">
-                      <label
-                        class="block uppercase text-gray-700 text-xs font-bold mb-2"
-                        for="grid-password"
-                        >save as</label
+                        >Save as (Display name)</label
                       ><input
                         type="text"
                         class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
@@ -73,10 +65,9 @@
 <script>
 import db from '../db'
 export default {
-  props: ['title'],
+  props: ['title', 'url'],
   data: () => ({
      email:'',
-     password: "",
      saved: "",
      usersData:[]
   }),
@@ -88,11 +79,12 @@ export default {
       const created = await db.users.insert({
          name: this.email,
          password: this.password,
-         saved: this.saved
-      })
-      console.log(created)
-      this.usersData = await db.users.find()
-      console.log( this.usersData )
+         saved: this.saved,
+         site: this.url
+      });
+      console.log(created);
+      this.usersData = await db.users.find();
+      console.log( this.usersData );
     }
   }
 }
