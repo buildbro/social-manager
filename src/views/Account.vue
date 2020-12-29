@@ -32,9 +32,9 @@
                   <div class="mb-1">{{user.saved}} </div>
                   <div class="text-grey text-xs mb-6">{{user.name}}</div>
                 </div>
-                <button class="text-white" @click="confirmDelete(user._id)">&cross;</button>
               </div>
             </div>
+            <button class="text-white" @click="confirmDelete(user)">&cross;</button>
           </div>
         </div>
       </div>
@@ -79,11 +79,15 @@ export default {
         params: { userKey, url }
       });
     },
-    confirmDelete(id) {
+    async confirmDelete(user) {
       let action = confirm('Are you sure you want to remove this account?');
-      if (action == true) {
-        db.users.remove({_id: id});
-        alert('deleted!')
+      if (action === true) {
+        const deleted = await db.users.remove({_id: user._id});
+        alert('deleted!');
+        if (deleted === 1) {
+            const idx = this.usersData.indexOf(user);
+            this.usersData.splice(idx, 1);
+        }
       }
     }
   }
