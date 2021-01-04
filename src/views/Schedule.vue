@@ -60,8 +60,6 @@
     import axios from 'axios';
   export default {
       data: () => ({
-          appSecret: '8da61a8f42c78dd0edaa7f24bbded2d3',
-          appId: '2875178422757557',
           pages: [],
           site: null,
           selectedPage: null,
